@@ -36,7 +36,3 @@ gem "simple_worker"
 # group :development, :test do
 #   gem 'webrat'
 # end
-
-group :development do
-  gem 'sqlite3'
-end  
