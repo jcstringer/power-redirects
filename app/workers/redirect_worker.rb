@@ -1,5 +1,5 @@
 class RedirectWorker < SimpleWorker::Base
-  attr_accessor :input, :token, :shop
+  attr_accessor :input, :token, :shop, :api_url
   merge_gem "shopify_api"
   merge_gem "shopify_app"
   
@@ -30,7 +30,7 @@ class RedirectWorker < SimpleWorker::Base
   private 
   
   def create_session!
-    ShopifyAPI::Base.site = "Site goes here"
+    ShopifyAPI::Base.site = api_url
   end  
   
   def create_path(surl)

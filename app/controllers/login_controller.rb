@@ -27,6 +27,9 @@ class LoginController < ApplicationController
       session[:shopify] = shopify_session
       flash[:notice] = "Logged in to shopify store."
       
+      # Persist url to db the first time around
+      ShopData.find_or_create_by_name_and_api_url(params[:shop], shopify_session.site)
+      
       redirect_to return_address
       session[:return_to] = nil
     else

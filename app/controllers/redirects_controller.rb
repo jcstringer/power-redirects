@@ -79,6 +79,7 @@ class RedirectsController < ApplicationController
     worker.input = params[:redirects].split(/[\r\n]+/).slice(0..249)
     worker.token = session[:shopify].token
     worker.shop  = current_shop.url
+    worker.api_url = ShopData.find_by_name(current_shop.url).api_url
     RAILS_ENV == "development" ? worker.run_local : worker.queue
     flash[:notice] = RAILS_ENV == "development" ? "" : "Worker id is #{worker.status.inspect}. "
     flash[:notice] += "#{worker.input.size} redirects were queued for creation. Please be patient as this process may take as long as 30 mins depending on the queue size."
