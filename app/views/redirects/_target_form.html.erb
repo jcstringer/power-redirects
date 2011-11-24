@@ -1,0 +1,7 @@
+<%= form_for @redirect do |f| %>
+  <%= f.hidden_field :path %>
+  <%= f.select :target,  options_for_select(@options, @redirect.target), {:include_blank => "Select Target"}, {:class => "chzn-select"} %>
+  <br />
+  <%= f.submit %>
+  <span>Tip: Start typing in the menu to filter targets.</span>
+<% end -%>

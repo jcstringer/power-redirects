@@ -1,0 +1,6 @@
+<div class="errors"><%= flash[:errors] %></div>
+Upload your file of redirects here. It should be a CSV file, with the source in the first column and target in the second column. Do not include your domain name in either the source or the target, and all entries should begin with a /.
+<%= form_tag({:action => :import}, :multipart => true) do %>
+  <%= file_field_tag 'csv' %>
+  <%= submit_tag 'Upload File' %>
+<% end %>

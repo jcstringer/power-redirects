@@ -1,0 +1,6 @@
+Redirect from <strong>http://www.rdcshop.com/products/<%= @product.handle %></strong> to 
+<%= form_for :redirect do |f| %>
+  <%= f.hidden_field :path %>
+  <%= f.select :target,  grouped_options_for_select(@grouped_options), {:include_blank => "Select Target"}%>
+  <%= f.submit %>
+<% end -%>  

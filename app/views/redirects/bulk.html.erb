@@ -1,0 +1,17 @@
+<% 
+#ShopifyAPI::Session.setup({:api_key => "49bd5690d3c66f2f39b82f6242a52c7d", :secret => "78e49b9490207974e76fbda514079727"})
+#ShopifyAPI::Session.new("rdcshop.myshopify.com", session[:shopify].token) 
+#ActiveResource::Base.site = session.site 
+#shop = ShopifyAPI::Shop.current %>
+<%# current_shop.url %>
+<%# ShopifyAPI::Redirect.find(:all).size %>
+<p>Create up to 250 redirects at once. Simply enter one redirect per line, with the path (the page you wish to redirect from) followed by the target (the page you wish to redirect to) and one or more spaces in between. You can optionally include the http://  and the domain in the path or target, but it isn't required. However you should start each entry with a forward slash if you don't include the domain.</p>
+<p>Pro Tip: Google Webmaster Tools will provide you with a nice csv export of all urls on your site that are returning 404 Page Not Found responses. Download the csv and import it with Excel, Google Docs, or another spreadsheet program. In the second column, enter the url you wish to redirect the bad url to. Then copy and paste them into this tool in groups of 250.</p>
+<p>Please note that any redirects over the limit of 250 will be ignored.</p>   
+  
+  
+<%= form_tag "/redirects/create_bulk"  do %>
+  <%= text_area_tag "redirects", nil, {:placeholder => "/old_url.html /products/my-cool-product-on-shopify"} %>
+  <br /><br />
+  <%= submit_tag %>
+<% end -%>

@@ -1,0 +1,6 @@
+Redirect from <strong><%= @shop.domain %><%= @redirect.path %></strong> to 
+<%= form_tag({:action => :get_targets}, :remote => true) do %>
+  <div><label>Target Type</label><%= select_tag :target_type, options_for_select(@target_types) %></div>
+  <%= submit_tag %>
+<% end -%>  
+<div id="target_select"></div>
