@@ -1,4 +1,9 @@
 PowerRedirects::Application.configure do
+  
+  # Shopify API connection credentials:
+  config.shopify.api_key = ENV['SHOPIFY_API_KEY']
+  config.shopify.secret =  ENV['SHOPIFY_SECRET']
+  
   # Settings specified here will take precedence over those in config/application.rb
 
   # The production environment is meant for finished, "live" apps.
